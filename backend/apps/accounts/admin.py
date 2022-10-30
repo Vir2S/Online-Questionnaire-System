@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User
+from .models import User, Profile
 
 
 class UserAdminModel(UserAdmin):
@@ -18,4 +18,16 @@ class UserAdminModel(UserAdmin):
     ordering = ("-id", )
 
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "user",
+        "role",
+        "university_name",
+    )
+    ordering = ("-id", )
+    search_fields = ("user__email", )
+
+
+admin.site.register(Profile, ProfileAdmin)
 admin.site.register(User, UserAdminModel)
