@@ -21,3 +21,17 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, related_name="user", on_delete=models.CASCADE)
+    role = models.CharField(max_length=8, choices=ROLE_CHOICES)
+    university_name = models.CharField(max_length=2000, blank=True, null=True)
+    about = models.TextField(blank=True, null=True)
+    profile_picture = models.ImageField(upload_to=path_and_rename, blank=True, null=True)
+
+    class Meta:
+        ordering = ("-id", )
+
+    def __str__(self):
+        return self.user
