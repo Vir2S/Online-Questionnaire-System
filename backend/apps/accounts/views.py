@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
 
-from .models import User, Role
+from .models import User
 from .serializers import UserSerializer
 
 
