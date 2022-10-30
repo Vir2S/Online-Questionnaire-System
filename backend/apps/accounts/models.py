@@ -8,11 +8,8 @@ from .managers import UserManager
 class User(AbstractUser):
     email = models.EmailField(unique=True, max_length=45)
     username = models.CharField(max_length=12, blank=True)
-    full_name = models.CharField(max_length=60, blank=True)
-    address = models.CharField(max_length=80, blank=True)
-    role = models.IntegerField(blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-    created_on = models.DateTimeField(auto_now_add=True, blank=True, editable=False)
+    first_name = models.CharField(max_length=60, blank=True)
+    last_name = models.CharField(max_length=60, blank=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -24,14 +21,3 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
-
-
-class Role(models.Model):
-    user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE)
-    role = models.CharField(max_length=8, choices=ROLE_CHOICES)
-
-    class Meta:
-        ordering = ("-id", )
-
-    def __str__(self):
-        return self.role
