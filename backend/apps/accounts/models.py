@@ -3,6 +3,7 @@ from django.db import models
 
 from .choices import ROLE_CHOICES
 from .managers import UserManager
+from .validators import path_and_rename
 
 
 class User(AbstractUser):
