@@ -27,6 +27,13 @@ urlpatterns = [
             namespace="accounts"
         )
     ),
+    path(
+        "api/v1/exams/",
+        include(
+            ("apps.exams.urls", "apps.exams"),
+            namespace="exams"
+        )
+    ),
     path("api/v1/auth/", include('rest_framework.urls')),
     path(
         "api/v1/auth/token/",
