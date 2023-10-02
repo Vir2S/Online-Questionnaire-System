@@ -13,9 +13,9 @@ from .validators import path_and_rename
 
 class User(AbstractUser):
     email = models.EmailField(unique=True, max_length=45)
-    username = models.CharField(max_length=12, blank=True)
-    first_name = models.CharField(max_length=60, blank=True)
-    last_name = models.CharField(max_length=60, blank=True)
+    username = models.CharField(max_length=12, blank=True, null=True)
+    first_name = models.CharField(max_length=60, blank=True, null=True)
+    last_name = models.CharField(max_length=60, blank=True, null=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
