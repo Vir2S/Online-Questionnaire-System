@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'apps.accounts',
     'apps.authorization',
+    "apps.exams",
 ]
 
 MIDDLEWARE = [
