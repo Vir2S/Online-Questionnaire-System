@@ -26,7 +26,10 @@ class ProfileAdmin(admin.ModelAdmin):
         "university_name",
     )
     ordering = ("-id", )
-    search_fields = ("user__email", )
+    search_fields = (
+        "user__email",
+        "university_name",
+    )
 
 
 admin.site.register(Profile, ProfileAdmin)
